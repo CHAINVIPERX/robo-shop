@@ -35,10 +35,10 @@
 #fi
 
 VALIDATION() {
-    if [ $? -eq 0 ]; then
-        echo "Installation Successful"
+    if [ $1 -eq 0 ]; then
+        echo " $2 Installation Successful"
     else
-        echo "Installation Failed"
+        echo " $2 Installation Failed"
         exit 1
     fi
 }
@@ -53,8 +53,8 @@ fi
 
 yum install mysql -y
 
-VALIDATION
+VALIDATION $? mysql
 
 yum install git -y
 
-VALIDATION
+VALIDATION $? Git
