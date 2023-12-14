@@ -83,4 +83,4 @@ VALIDATION $? mysql
 
 yum install git -y &>>$LOG
 
-VALIDATION $? Git
+VALIDATION $? Gitdf
