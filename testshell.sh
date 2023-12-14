@@ -81,6 +81,6 @@ yum install mysql -y &>>$LOG
 
 VALIDATION $? mysql
 
-yum install git -y &>>$LOG
+yum install gisft -y &>>$LOG
 
-VALIDATION $? Gitdf
+VALIDATION $? Git
