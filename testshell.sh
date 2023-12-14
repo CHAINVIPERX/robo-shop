@@ -34,6 +34,30 @@
 #   echo "The number $number is smaller than 50"
 #fi
 
+#VALIDATION() {
+#        echo " $2 Installation Successful"
+#    else
+#        echo " $2 Installation Failed"
+#        exit 1
+#    fi
+#}
+
+#ID=$(id -u)
+#if [ $ID -eq 0 ]; then
+#   echo "ROOT User"
+#else
+#   echo " Not a ROOT User"
+#    exit 1
+#fi
+
+#yum install mysql -y
+
+#VALIDATION $? mysql
+
+#yum install git -y
+
+#VALIDATION $? Git
+
 VALIDATION() {
     if [ $1 -eq 0 ]; then
         echo " $2 Installation Successful"
@@ -43,18 +67,20 @@ VALIDATION() {
     fi
 }
 
+TIME=$(date +%F-%H-%M-%S)
+LOG="/tmp/$0-$TIME.log"
 ID=$(id -u)
 if [ $ID -eq 0 ]; then
     echo "ROOT User"
 else
     echo " Not a ROOT User"
-    exit 1
+    exit 1 &>>$LOG
 fi
 
-yum install mysql -y
+yum install mysql -y &>>$LOG
 
 VALIDATION $? mysql
 
-yum install git -y
+yum install git -y &>>$LOG
 
 VALIDATION $? Git
