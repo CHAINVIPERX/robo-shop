@@ -58,29 +58,35 @@
 
 #VALIDATION $? Git
 
-VALIDATION() {
-    if [ $1 -eq 0 ]; then
-        echo " $2 Installation Successful"
-    else
-        echo " $2 Installation Failed"
-        exit 1
-    fi
-}
+#VALIDATION() {
+#    if [ $1 -eq 0 ]; then
+#        echo " $2 Installation Successful"
+#    else
+#        echo " $2 Installation Failed"
+#        exit 1
+#    fi
+#}
 
-TIME=$(date +%F-%H-%M-%S)
-LOG="/tmp/$0-$TIME.log"
-ID=$(id -u)
-if [ $ID -eq 0 ]; then
-    echo "ROOT User"
-else
-    echo " Not a ROOT User"
-    exit 1 &>>$LOG
-fi
+#TIME=$(date +%F-%H-%M-%S)
+#LOG="/tmp/$0-$TIME.log"
+#ID=$(id -u)
+#if [ $ID -eq 0 ]; then
+#    echo "ROOT User"
+#else
+#    echo " Not a ROOT User"
+#    exit 1 &>>$LOG
+#fi
 
-yum install mysql -y &>>$LOG
+#yum install mysql -y &>>$LOG
 
-VALIDATION $? mysql
+#VALIDATION $? mysql
 
-yum install gisft -y &>>$LOG
+#yum install git -y &>>$LOG
 
-VALIDATION $? Git
+#VALIDATION $? Git
+
+#echo -e "MY name is \e[33m BALAJI"
+
+for i in {1..1054}; do
+    echo "$i"
+done
