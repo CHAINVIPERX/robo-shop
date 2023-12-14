@@ -39,3 +39,5 @@ if [ $ID -eq 0 ]
 then echo "ROOT User"
 else echo " Not a ROOT User"
 fi
+
+yum install mysql -y
