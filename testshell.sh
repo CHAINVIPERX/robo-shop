@@ -10,6 +10,19 @@
 #DATE=$(date)
 #echo "Date and time is ${DATE}"
 
-echo "Please enter your Age"
-read AGE
-echo "Age is $AGE"
+#echo "Please enter your Age"
+#read AGE
+#echo "Age is $AGE"
+
+#n1=$1
+#2=$2
+
+#SUM=$(($n1+$n2))
+#echo "sum of $n1 and $n2 is $SUM"
+
+FRUITS=("JACKFRUIT" "ORANGE" "CAPPLE")
+echo "${FRUITS[0]}"
+echo "${FRUITS[1]}"
+echo "${FRUITS[2]}"
+echo "${FRUITS[@]}"
+
