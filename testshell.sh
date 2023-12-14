@@ -41,4 +41,10 @@ else echo " Not a ROOT User"
 exit 1
 fi
 
-yum install mysql -y
+yum install mysqlgdd -y
+
+if [ $? -eq 0 ]
+then echo "Installation Successful"
+else echo "Installation Failed"
+exit 1
+fi
