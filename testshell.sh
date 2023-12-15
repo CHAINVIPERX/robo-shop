@@ -87,6 +87,6 @@
 
 #echo -e "MY name is \e[33m BALAJI"
 
-for i in {1..1054}; do
-    echo "$i"
-done
+#for i in {1..1054}; do
+#    echo "$i"
+#done
