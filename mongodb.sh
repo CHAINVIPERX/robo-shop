@@ -38,12 +38,12 @@ then
     
 fi
 
-echo -e" Configuring $CY Mongodb $CN"
+echo " Configuring  Mongodb "
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 
 echo "Enabling Mongod"
 systemctl enable mongod
 echo "Starting Mongod"
-systemctl start Mongod
+systemctl start mongod
 
 netstat -lntp
