@@ -26,13 +26,13 @@ echo -e "Installing $CG Mongodb $CN"
 
 dnf install mongodb -y
 
-
+VALIDATION $? Mongodb
 
 if [ $? -eq 1 ]; 
 then
-    echo -e "Creating $CY Mongodb $CN Repo"
+    echo  "Creating  Mongodb  Repo"
     cp mongo.repo /etc/yum.repos.d/
-    echo -e "Installing $CY mongodb $CN"
+    echo  "Installing  Mongodb "
     dnf install mongodb-org -y
     VALIDATION $? Mongodb
     
