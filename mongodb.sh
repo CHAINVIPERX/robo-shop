@@ -7,8 +7,8 @@ CN="\e[0m"
 
 ID=$(id -u)
 if [ $ID -eq 0 ]; then
-    echo "Please Run this Script as $CY ROOT USER $CN"
+    echo -e "Please Run this Script as $CY ROOT USER $CN"
     exit 1
 else
-    echo " $CG ROOT USER $CN"
+    echo -e " $CG ROOT USER $CN"
 fi
