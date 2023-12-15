@@ -32,7 +32,7 @@ if [ $? -eq 1 ];
 then
     echo -e "Creating $CY Mongodb $CN Repo"
     cp mongo.repo /etc/yum.repos.d/
-    echo -e"installing $CY mongodb $CN"
+    echo -e "Installing $CY mongodb $CN"
     dnf install mongodb-org -y
     VALIDATION $? Mongodb
     
