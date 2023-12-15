@@ -28,7 +28,7 @@ dnf install mongodb -y
 
 VALIDATION $? Mongodb
 
-if [ ${VALIDATION[0]} -eq 1 ]; 
+if [ $? -eq 1 ]; 
 then
     echo "Creating Mongodb Repo"
     cp mongo.repo /etc/yum.repos.d/
