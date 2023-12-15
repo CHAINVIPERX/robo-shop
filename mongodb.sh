@@ -19,16 +19,16 @@ then
     echo -e "Please Run this Script as $CY ROOT USER $CN"
     exit 1
 else
-    echo -e " $CG ROOT USER $CN"
+    echo -e "$CG ROOT USER $CN"
 fi
 
-echo -e "installing $CG mongodb $CN"
+echo -e "Installing $CG Mongodb $CN"
 
 dnf install mongodb -y
 
-VALIDATION $? Mongodb
 
-if [ $? -eq 0 ]; 
+
+if [ $? -eq 1 ]; 
 then
     echo -e "Creating $CY Mongodb $CN Repo"
     cp mongo.repo /etc/yum.repos.d/
