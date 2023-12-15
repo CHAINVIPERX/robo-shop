@@ -8,7 +8,7 @@ CN="\e[0m"
 VALIDATION(){
     if [ $1 -eq 0 ]; 
     then echo " Installation of $2 is SUCCESS " 
-        exit 1 
+        
     else echo " Installation of $2 has FAILED"
     fi
 }
