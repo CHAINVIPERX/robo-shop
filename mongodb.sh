@@ -30,15 +30,15 @@ VALIDATION $? Mongodb
 
 if [ $? -eq 0 ]; 
 then
-    echo "Creating Mongodb Repo"
+    echo -e "Creating $CY Mongodb $CN Repo"
     cp mongo.repo /etc/yum.repos.d/
-    echo "installing mongodb"
+    echo -e"installing $CY mongodb $CN"
     dnf install mongodb-org -y
     VALIDATION $? Mongodb
-    exit 1
+    
 fi
 
-echo " Configuring Mongodb"
+echo -e" Configuring $CY Mongodb $CN"
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 
 echo "Enabling Mongod"
