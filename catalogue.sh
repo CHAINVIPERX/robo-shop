@@ -51,7 +51,7 @@ VALIDATION $? "Installing Catalaogue.Service"
 cp /home/centos/robo-shop/catalogue.service /etc/systemd/system/
 VALIDATION $? "Loading Catalaogue.Service"
 echo -e "$CY Starting Catalogue $CN"
-systemctl daemom-reload
+systemctl daemon-reload
 systemctl enable catalogue
 systemctl start catalogue
 
@@ -60,6 +60,6 @@ cp /home/centos/robo-shop/mongo.repo /etc/yum.repos.d/
 dnf install mongodb-org-shell -y
 VALIDATION $? "Installing Mongodb client"
 echo "Loading Schema into Mongodb"
-mongo --host cat.ladoo.shop </app/schema/catalogue.js
+mongo --host mongodb.ladoo.shop </app/schema/catalogue.js
 VALIDATION $? "Loading Schema into Mongodb"
 netstat -lntp
