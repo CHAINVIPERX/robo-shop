@@ -18,38 +18,38 @@ else
 fi
 };
 
-if [ $(id) -ne 0 ];
+if [ $(id -u) -ne 0 ]
 then 
     echo -e "Please run this Script as $CR ROOT USER $CN"
     exit;
 else
-    echo -e "You are Root User"
+    echo -e "You are $CG Root User $CN"
 fi
 
 dnf module disable nodejs -y;
-VALIDATION $? Disabling Nodejs 
+VALIDATION $? "Disabling Nodejs" 
 dnf module enable nodejs:18 -y;
-VALIDATION $? Enabling Nodejs-18
+VALIDATION $? "Enabling Nodejs-18"
 echo "Installing Nodejs"
 dnf install nodejs -y;
-VALIDATION $? Intalling Nodejs-18
+VALIDATION $? "Intalling Nodejs-18"
 echo "Creating User"
 useradd roboshop
-VALIDATION $? Creating User
+VALIDATION $? "Creating User"
 echo "Making App Directory"
 mkdir /app
-VALIDATION $? Making App Directory
+VALIDATION $? "Making App Directory"
 cd /app
 echo "Downloading Catalogue.Service"
 wget https://roboshop-builds.s3.amazonaws.com/catalogue.zip
 unzip catalogue.zip
-VALIDATION $? Unziping Catalogue
+VALIDATION $? "Unziping Catalogue"
 echo "Installing Catalaogue.Service"
 npm install
 cd /
-VALIDATION $? Installing Catalaogue.Service
+VALIDATION $? "Installing Catalaogue.Service"
 cp /home/centos/robo-shop/catalogue.service /etc/systemd/system/
-VALIDATION $? Loading Catalaogue.Service
+VALIDATION $? "Loading Catalaogue.Service"
 echo -e "$CY Starting Catalogue $CN"
 systemctl daemom-reload
 systemctl enable catalogue
@@ -58,8 +58,8 @@ systemctl start catalogue
 echo "Installing Mongodb client"
 cp /home/centos/robo-shop/mongo.repo /etc/yum.repos.d/
 dnf install mongodb-org-shell -y
-VALIDATION $? Installing Mongodb client
+VALIDATION $? "Installing Mongodb client"
 echo "Loading Schema into Mongodb"
 mongo --host cat.ladoo.shop </app/schema/catalogue.js
-VALIDATION $? Loading Schema into Mongodb
+VALIDATION $? "Loading Schema into Mongodb"
 netstat -lntp
