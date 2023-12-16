@@ -1,9 +1,9 @@
 #!/bin/bash
 
-CR="\e31m"
-CG="\e32m"
-CY="\e33m"
-CN="\e0m"
+CR="\e[31m"
+CG="\e[32m"
+CY="\e[33m"
+CN="\e[0m"
 
 LOG=/tmp/robo-shop-logs/$(date +%F-%M-%H ).$0;
 #exec &>LOG;
