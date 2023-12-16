@@ -40,7 +40,7 @@ VALIDATIONES=$?
 if [ $VALIDATIONES = 0 ];
 then
     echo -e "User Already $CR Exists $CN"
-    echo " Do you want to Proceed-Y (or) Exit the script-N ? Type Y/N"
+    echo "Do you want to Proceed-Y (or) Exit the script-N ? Type Y/N"
     read -r RESPONSE;
     if [ "$RESPONSE" == "n" ]|| [ "$RESPONSE" == "N" ] ;
     then 
