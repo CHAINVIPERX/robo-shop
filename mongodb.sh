@@ -31,10 +31,10 @@ VALIDATION $? Mongodb
 
 if [ $? -ne 0 ]; 
 then
-    echo  "Creating  Mongodb  Repo"
+    echo -e "Creating  $CG Mongodb Repo $CN"
     cp mongo.repo /etc/yum.repos.d/
-    echo  "Installing  Mongodb "
-    dnf install mongodb-org -y
+    echo -e "Installing $CG Mongodb $CN"
+    dnf install mongob-org -y
     VALIDATION $? Mongodb
 fi
 
@@ -44,12 +44,12 @@ then
 exit 1
 fi
 
-echo " Configuring  Mongodb "
+echo -e "Configuring $CG Mongodb $CN"
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 
-echo "Enabling Mongod"
+echo -e "Enabling $CG Mongodb $CN"
 systemctl enable mongod
-echo "Starting Mongod"
+echo -e "Starting $CG Mongodb $CN"
 systemctl start mongod
 
 netstat -lntp
