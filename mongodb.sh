@@ -5,7 +5,7 @@ CG="\e[32m"
 CY="\e[33m"
 CN="\e[0m"
 
-VALIDATIONES=$?
+
 
 VALIDATION(){
     if [ $1 -eq 0 ]; 
@@ -31,7 +31,7 @@ dnf install mongodb -y
 
 VALIDATION $? Mongodb
 
-$VALIDATIONES;
+VALIDATIONES=$?;
 
 if [ $VALIDATIONES != 0 ]; 
 then
@@ -42,7 +42,7 @@ then
     VALIDATION $? Mongodb
 fi
 
-$VALIDATIONES;
+VALIDATIONES=$?;
 
 if [ $VALIDATIONES != 0 ] 
 then
