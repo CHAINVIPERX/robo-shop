@@ -7,7 +7,7 @@ CN="\e[0m"
 
 VALIDATION(){
     if [ $1 -eq 0 ]; 
-    then echo -e " Installation of $2 is $CG SUCCESS $CN " 
+    then echo -e " Installation of $2 is $CG SUCCESS $CN "
          return 0;
     else echo -e " Installation of $2 has $CR FAILED $CN"
          return 1;
