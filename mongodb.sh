@@ -36,7 +36,6 @@ then
     echo  "Installing  Mongodb "
     dnf install mongodb-org -y
     VALIDATION $? Mongodb
-    return 0
 fi
 
 if [ $? -eq 0 ];
