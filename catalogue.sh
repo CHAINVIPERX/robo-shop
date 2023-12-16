@@ -34,7 +34,30 @@ echo "Installing Nodejs"
 dnf install nodejs -y;
 VALIDATION $? "Intalling Nodejs-18"
 echo "Creating User"
-useradd roboshop
+id roboshop
+
+VALIDATIONES=$?
+if [ $VALIDATIONES = 0 ];
+then
+    echo -e "User Already $CR Exists $CN"
+    echo " Do you want to Proceed-Y (or) Exit the script-N ? Type Y/N"
+    read -r RESPONSE;
+    if [ "{$RESPONSE,,}" = "n" ];
+    then 
+        echo -e "$CY EXITING SCRIPT $CN"
+        exit 1;
+    elif [ "{$RESPONSE,,}" = "y" ];
+    then
+        true;
+        return 0;
+    else 
+        echo "Invalid Response"
+        exit 1;
+    fi
+else 
+    useradd roboshop;
+fi
+
 VALIDATION $? "Creating User"
 echo "Making App Directory"
 mkdir /app
