@@ -5,13 +5,15 @@ CG="\e[32m"
 CY="\e[33m"
 CN="\e[0m"
 
+VALIDATIONES=$?
+
 VALIDATION(){
     if [ $1 -eq 0 ]; 
     then echo -e " Installation of $2 is $CG SUCCESS $CN "
          return 0;
     else echo -e " Installation of $2 has $CR FAILED $CN"
          return 1;
-    fi
+    fi; 
 }
 
 ID=$(id -u)
@@ -29,7 +31,9 @@ dnf install mongodb -y
 
 VALIDATION $? Mongodb
 
-if [ $? -ne 0 ]; 
+$VALIDATIONES;
+
+if [ $VALIDATIONES != 0 ]; 
 then
     echo -e "Creating  $CG Mongodb Repo $CN"
     cp mongo.repo /etc/yum.repos.d/
@@ -38,18 +42,17 @@ then
     VALIDATION $? Mongodb
 fi
 
-if [ $? -eq 0 ];
-then 
-    echo -e "Installation $CR FAILED $CN"
-exit 1
+$VALIDATIONES;
+
+if [ $VALIDATIONES != 0 ] 
+then
+    exit ;
+else
+    echo -e "Configuring $CG Mongodb $CN"
+    sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+    echo -e "Enabling $CG Mongodb $CN"
+    systemctl enable mongod
+    echo -e "Starting $CG Mongodb $CN"
+    systemctl start mongod
+    netstat -lntp
 fi
-
-echo -e "Configuring $CG Mongodb $CN"
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
-
-echo -e "Enabling $CG Mongodb $CN"
-systemctl enable mongod
-echo -e "Starting $CG Mongodb $CN"
-systemctl start mongod
-
-netstat -lntp
