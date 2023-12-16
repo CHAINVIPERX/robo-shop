@@ -5,7 +5,7 @@ CG="\e32m"
 CY="\e33m"
 CN="\e0m"
 
-LOG=/tmp/robo-shop-logs/$(date %F%M%H ).$0;
+LOG=/tmp/robo-shop-logs/$(date +%F-%M-%H ).$0;
 exec &>LOG;
 
 VALIDATION(){
@@ -30,6 +30,7 @@ dnf module disable nodejs -y;
 VALIDATION $? Disabling Nodejs 
 dnf module enable nodejs:18 -y;
 VALIDATION $? Enabling Nodejs-18
+echo "Installing Nodejs"
 dnf install nodejs -y;
 VALIDATION $? Intalling Nodejs-18
 echo "Creating User"
@@ -47,7 +48,7 @@ echo "Installing Catalaogue.Service"
 npm install
 cd /
 VALIDATION $? Installing Catalaogue.Service
-cp catalogue.service /etc/systemd/system/
+cp /home/centos/robo-shop/catalogue.service /etc/systemd/system/
 VALIDATION $? Loading Catalaogue.Service
 echo -e "$CY Starting Catalogue $CN"
 systemctl daemom-reload
@@ -55,7 +56,7 @@ systemctl enable catalogue
 systemctl start catalogue
 
 echo "Installing Mongodb client"
-cp mongo.repo /etc/yum.repos.d/
+cp /home/centos/robo-shop/mongo.repo /etc/yum.repos.d/
 dnf install mongodb-org-shell -y
 VALIDATION $? Installing Mongodb client
 echo "Loading Schema into Mongodb"
