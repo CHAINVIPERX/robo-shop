@@ -49,7 +49,6 @@ then
     elif [ "$RESPONSE" == "y" ] || [ "$RESPONSE" == "Y" ];
     then
         true;
-        return 0;
     else 
         echo "Invalid Response"
         exit 1;
