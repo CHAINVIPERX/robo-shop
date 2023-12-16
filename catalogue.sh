@@ -6,7 +6,7 @@ CY="\e33m"
 CN="\e0m"
 
 LOG=/tmp/robo-shop-logs/$(date +%F-%M-%H ).$0;
-exec &>LOG;
+#exec &>LOG;
 
 VALIDATION(){
 if [ $1 -eq 0 ];
