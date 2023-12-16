@@ -42,11 +42,11 @@ then
     echo -e "User Already $CR Exists $CN"
     echo " Do you want to Proceed-Y (or) Exit the script-N ? Type Y/N"
     read -r RESPONSE;
-    if [ "{$RESPONSE,,}" = "n" ];
+    if [ "$RESPONSE" == "n" ]|| [ "$RESPONSE" == "N" ] ;
     then 
         echo -e "$CY EXITING SCRIPT $CN"
         exit 1;
-    elif [ "{$RESPONSE,,}" = "y" ];
+    elif [ "$RESPONSE" == "y" ] || [ "$RESPONSE" == "Y" ];
     then
         true;
         return 0;
