@@ -1,11 +1,11 @@
-a#!/bin/bash
+#!/bin/bash
 
 CR="\e31m"
 CG="\e32m"
 CY="\e33m"
 CN="\e0m"
 
-LOG=/tmp/robo-shop-logs/$(date %H%M).$0;
+LOG=/tmp/robo-shop-logs/$(date %F%M%H ).$0;
 exec &>LOG;
 
 VALIDATION(){
