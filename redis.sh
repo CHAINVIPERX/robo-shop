@@ -15,8 +15,8 @@ CN="\e[0m"
 #    true;
 #fi
 
-#LOG=/tmp/robo-shop.logs/$(date +%F-%H-%M).$0;
-#script &>"$LOG"
+#LOG="/tmp/robo-shop.logs/$(date +%F-%H-%M).$0"
+#exec &>$LOG
 
 VALIDATION(){
     if [ $1 -eq 0 ];
