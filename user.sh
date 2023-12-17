@@ -10,9 +10,9 @@ RI="\e[3;${CR}m"
 VALIDATIOM (){
     if [ $1 -eq 0 ];
     then 
-        echo -e "Installing $2 is ${BG} SUCCESSFUL ${CN}"
+        echo -e "$2 is ${BG} SUCCESSFUL ${CN}"
     else
-        echo -e "Installing $2 has ${RI} FAILED ${CN}"
+        echo -e "$2 has ${RI} FAILED ${CN}"
     fi
 }
 
@@ -45,7 +45,7 @@ then
     elif [ "$RESPONSE" == "N" ] || [ "$RESPONSE" == "n" ];
     then
         echo -e "${GB}EXITING SCRIPT${CN}"
-        exit ;
+        exit 1;
     else
         echo -e "${RI}INVALID RESPONSE ${CN}"
         exit 1;
