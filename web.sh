@@ -24,7 +24,7 @@ fi
 
 echo -e "${CY}Installing NGINX${CN}"
 dnf install nginx -y
-VALIDATION $2 "Installing NGINX"
+VALIDATION $? "Installing NGINX"
 
 echo -e "${CY}Downloading Web Interface${CN}"
 rm -rf /usr/share/nginx/html/
@@ -32,14 +32,14 @@ cd /usr/share/nginx/html
 wget https://roboshop-builds.s3.amazonaws.com/web.zip
 unzip -o web.zip
 rm -rf /usr/share/nginx/html/web.zip
-VALIDATION $2 "Downloading Web Interface"
+VALIDATION $? "Downloading Web Interface"
 
 echo -e "${CY}Configuring NGINX${CN}"
 cp /home/centos/robo-shop/roboshop.conf /etc/nginx/default.d/roboshop.conf
-VALIDATION $2 "Configuring NGINX"
+VALIDATION $? "Configuring NGINX"
 
 echo -e "${CY}Starting NGINX${CN}"
 systemctl enable nginx
 systemctl start nginx
-VALIDATION $2 "Starting NGINX"
+VALIDATION $? "Starting NGINX"
 netstat -lntp
