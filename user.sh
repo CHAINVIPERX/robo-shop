@@ -24,7 +24,7 @@ else
     true;
 fi
 
-echo "Installing Nodejs"
+echo "Installing ${CY}Nodejs${CN}"
 dnf module disable nodejs -y
 dnf module enable nodejs:18 -y
 dnf install nodejs -y
@@ -47,7 +47,7 @@ then
         exit 1;
     else
         echo -e "${RI}INVALID RESPONSE ${CN}"
-        exit 1;
+        return 1;
     fi
 else 
     useradd roboshop;
