@@ -32,8 +32,8 @@ dnf install mysql-community-server -y
 VALIDATION $? "Installing MYSQL"
 
 echo -e "Starting ${CY}MYSQL${CN}"
-systemctl enable mysql
-systemctl start mysql
+systemctl enable mysqld
+systemctl start mysqld
 VALIDATION $? "Starting MYSQL"
 
 echo -e "Configuring User"
