@@ -9,16 +9,16 @@ CN="\e[0m"
 VALIDATION (){
     if [ $1 -eq 0 ];
     then 
-        echo -e "$2 is ${CG} SUCCESSFUL ${CN}"
+        echo -e "$2 is ${CG}SUCCESSFUL${CN}"
     else
-        echo -e "$2 has ${CR} FAILED ${CN}"
+        echo -e "$2 has ${CR}FAILED${CN}"
         exit 1;
     fi
 }
 
 if [ $(id -u) != 0 ];
 then
-    echo -e "This script must be run as ${CY}ROOT USER ${CN}"
+    echo -e "This script must be run as ${CY}ROOT USER${CN}"
     exit 1
 else
     true;
@@ -46,7 +46,7 @@ then
         echo -e "${CG}EXITING SCRIPT${CN}"
         exit 1;
     else
-        echo -e "${CR}INVALID RESPONSE ${CN}"
+        echo -e "${CR}INVALID RESPONSE${CN}"
         return 1;
     fi
 else 
