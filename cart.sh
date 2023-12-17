@@ -34,7 +34,7 @@ ES=$?
 if [ $ES = 0 ];
     then
         echo "User already exists"
-        echo "Do you want to PROCEED-Y (or) Do you want to EXIT-N?"
+        echo -e "Do you want to ${CY}PROCEED-Y${CN} (or) Do you want to ${CY}EXIT-N${CN}?"
         read -r RESPONSE
 
         if [ "$RESPONSE" = "Y" ] || [ "$RESPONSE" = "y" ];
