@@ -33,13 +33,16 @@ echo -e "${CY}Installing Mongodb $CN"
 dnf install mongodb-org -y
 VALIDATION $? "Installing Mongodb"
 
-echo -e "$CG Configuring Mongodb $CN"
+echo -e "$CY Configuring Mongodb $CN"
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+VALIDATION $2 "Configuring Mongodb"
+
 echo -e "${CY}Enabling Mongodb $CN"
 systemctl enable mongod
-VALIDATION $2 "Configuring and Enabling Mongodb"
+VALIDATION $2 "Enabling Mongodb"
 
 echo -e "${CY}Starting Mongodb ${CN}"
 systemctl start mongod
-netstat -lntp
 VALIDATION $? "Starting Mongodb"
+netstat -lntp
+
