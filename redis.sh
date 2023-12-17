@@ -5,18 +5,18 @@ CG="\e[32m"
 CY="\e[33m"
 CN="\e[0m"
 
-mkdir /tmp/robo-shop.logs/
+#mkdir /tmp/robo-shop.logs/
 
-ES=$?;
-if [ $ES != 0 ];
-then
-    echo -e "Directory Already Exists...$CY SKIP $CN"
-else
-    true;
-fi
+#ES=$?;
+#if [ $ES != 0 ];
+#then
+#    echo -e "Directory Already Exists...$CY SKIPPING $CN"
+#else
+#    true;
+#fi
 
-LOG=/tmp/robo-shop.logs/$(date +%F-%H-%M).$0;
-script &>"$LOG"
+#LOG=/tmp/robo-shop.logs/$(date +%F-%H-%M).$0;
+#script &>"$LOG"
 
 VALIDATION(){
     if [ $1 -eq 0 ];

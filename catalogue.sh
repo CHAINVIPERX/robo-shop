@@ -5,9 +5,10 @@ CG="\e[32m"
 CY="\e[33m"
 CN="\e[0m"
 
-mkdir /tmp/robo-shop.logs/
-LOG=/tmp/robo-shop.logs/$(date +%F-%M-%H ).$0;
-script &>"$LOG";
+#mkdir /tmp/robo-shop.logs/
+
+#LOG=/tmp/robo-shop.logs/$(date +%F-%M-%H ).$0;
+#script &>"$LOG";
 
 VALIDATION(){
     if [ $1 -eq 0 ];
