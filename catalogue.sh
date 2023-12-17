@@ -7,16 +7,16 @@ CN="\e[0m"
 
 mkdir /tmp/robo-shop.logs/
 LOG=/tmp/robo-shop.logs/$(date +%F-%M-%H ).$0;
-exec &>"$LOG";
+script &>"$LOG";
 
 VALIDATION(){
-if [ $1 -eq 0 ];
-then 
-    echo -e "$2 $CG SUCCESS $CN"
-else
-    echo -e "$2 $CR FAILED $CN Please check Log files '/tmp/robo-shop-logs/'"
-    exit;
-fi
+    if [ $1 -eq 0 ];
+    then 
+        echo -e "$2 $CG SUCCESS $CN"
+    else
+        echo -e "$2 $CR FAILED $CN Please check Log files '/tmp/robo-shop-logs/'"
+        exit;
+    fi
 };
 
 if [ $(id -u) -ne 0 ]
@@ -37,8 +37,8 @@ VALIDATION $? "Intalling Nodejs-18"
 echo "Creating User"
 id roboshop
 
-VALIDATIONES=$?
-if [ $VALIDATIONES = 0 ];
+ES=$?
+if [ $ES = 0 ];
 then
     echo -e "User Already $CR Exists $CN"
     echo "Do you want to Proceed-Y (or) Exit the script-N ? Type Y/N"

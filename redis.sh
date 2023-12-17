@@ -6,8 +6,17 @@ CY="\e[33m"
 CN="\e[0m"
 
 mkdir /tmp/robo-shop.logs/
+
+ES=$?;
+if [ $ES != 0 ];
+then
+    echo " Directory Already Exists...$CY SKIP $CN"
+else
+    true;
+fi
+
 LOG=/tmp/robo-shop.logs/$(date +%F-%H-%M).$0;
-exec &>"$LOG"
+script &>"$LOG"
 
 VALIDATION(){
     if [ $1 -eq 0 ];
