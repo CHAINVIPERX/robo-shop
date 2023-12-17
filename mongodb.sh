@@ -9,7 +9,7 @@ CN="\e[0m"
 
 VALIDATION(){
     if [ $1 -eq 0 ]; 
-    then echo -e "$2 is $CG SUCCESS $CN "
+    then echo -e "$2 is $CG SUCCESSFUL $CN "
         
     else echo -e "$2 has $CR FAILED $CN"
          exit 1;
