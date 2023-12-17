@@ -66,7 +66,7 @@ VALIDATION $? "Making App Directory"
 cd /app
 echo "Downloading Catalogue.Service"
 wget https://roboshop-builds.s3.amazonaws.com/catalogue.zip
-unzip catalogue.zip
+unzip -o catalogue.zip
 VALIDATION $? "Unziping Catalogue"
 echo "Installing Catalaogue.Service"
 npm install

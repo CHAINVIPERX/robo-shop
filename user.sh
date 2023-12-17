@@ -60,7 +60,7 @@ cd /app
 
 echo "Downloading user.service"
 wget https://roboshop-builds.s3.amazonaws.com/user.zip
-unzip /app/user.zip
+unzip -o /app/user.zip
 npm install
 VALIDATION $? "Installing User.service"
 
