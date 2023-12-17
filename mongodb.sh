@@ -9,9 +9,9 @@ CN="\e[0m"
 
 VALIDATION(){
     if [ $1 -eq 0 ]; 
-    then echo -e "Installation of $2 is $CG SUCCESS $CN "
+    then echo -e "$2 is $CG SUCCESS $CN "
         
-    else echo -e "Installation of $2 has $CR FAILED $CN"
+    else echo -e "$2 has $CR FAILED $CN"
          exit 1;
     fi; 
 }
@@ -19,40 +19,27 @@ VALIDATION(){
 ID=$(id -u)
 if [ $ID -ne 0 ]; 
 then
-    echo -e "Please Run this Script as $CY ROOT USER $CN"
+    echo -e "Please Run this Script as $CR ROOT USER $CN"
     exit 1
 else
     echo -e "$CG ROOT USER $CN"
 fi
 
-echo -e "Installing $CG Mongodb $CN"
+echo -e "${CY}Creating Mongodb Repo $CN"
+cp /home/centos/robo-shop/mongo.repo /etc/yum.repos.d/mongo.repo
+VALIDATION $? "Creating Mongodb Repo"
 
+echo -e "${CY}Installing Mongodb $CN"
 dnf install mongodb-org -y
+VALIDATION $? "Installing Mongodb"
 
-VALIDATION $? Mongodb
+echo -e "$CG Configuring Mongodb $CN"
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+echo -e "${CY}Enabling Mongodb $CN"
+systemctl enable mongod
+VALIDATION $2 "Configuring and Enabling Mongodb"
 
-VALIDATIONES=$?;
-
-if [ $VALIDATIONES != 0 ]; 
-then
-    echo -e "Creating  $CG Mongodb Repo $CN"
-    cp mongo.repo /etc/yum.repos.d/
-    echo -e "Installing $CG Mongodb $CN"
-    dnf install mongodb-org -y
-    VALIDATION $? Mongodb
-fi
-
-VALIDATIONES=$?;
-
-if [ $VALIDATIONES != 0 ] 
-then
-    exit ;
-else
-    echo -e "Configuring $CG Mongodb $CN"
-    sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
-    echo -e "Enabling $CG Mongodb $CN"
-    systemctl enable mongod
-    echo -e "Starting $CG Mongodb $CN"
-    systemctl start mongod
-    netstat -lntp
-fi
+echo -e "${CY}Starting Mongodb ${CN}"
+systemctl start mongod
+netstat -lntp
+VALIDATION $? "Starting Mongodb"
