@@ -28,7 +28,7 @@ VALIDATION $? "Installing NGINX"
 
 echo -e "${CY}Downloading Web Interface${CN}"
 rm -rf /usr/share/nginx/html/
-cd /usr/share/nginx/html
+cd /usr/share/nginx/html/
 wget https://roboshop-builds.s3.amazonaws.com/web.zip
 unzip -o web.zip
 rm -rf /usr/share/nginx/html/web.zip
