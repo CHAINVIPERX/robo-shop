@@ -8,22 +8,22 @@ CN="\e[0m"
 VALIDATION (){
     if [ $1 = 0 ];
     then
-        echo "$2 is ${CG}SUCCESSFUL${CN}"
+        echo -e "$2 is ${CG}SUCCESSFUL${CN}"
     else
-        echo "$2 is ${CR}FAILED${CN}"
+        echo -e "$2 is ${CR}FAILED${CN}"
         exit 1;
     fi
 }
 
 if [ $(id -u) -ne 0 ];
     then 
-        echo "Please run this script as ${CG}ROOT USER${CN}"
+        echo -e "Please run this script as ${CG}ROOT USER${CN}"
               exit 1;
     else
         true;
 fi
 
-echo -e"Installing ${CY}NODEJS${CN}"
+echo -e "Installing ${CY}NODEJS${CN}"
 dnf module disable nodejs -y
 dnf module enable nodejs:18 -y
 dnf install nodejs -y
@@ -45,13 +45,13 @@ if [ $ES = 0 ];
                     echo -e "${CY}Exiting Script${CN}"
                     exit 1;
             else
-                echo "${CR}Invalid response${CN}";
+                echo -e "${CR}Invalid response${CN}";
                 exit 1;
         fi
     else 
         useradd roboshop 
 fi
-
+VALIDATION $? "Creating User"
 echo "Making Directory"
 mkdir /app
 cd /app
