@@ -4,15 +4,15 @@ CR="\e[31m"
 CG="\e[32"
 CY="\e[33m"
 CN="\e[0m"
-BG="\e[1;${CG}m"
-RI="\e[3;${CR}m"
+
 
 VALIDATION (){
     if [ $1 -eq 0 ];
     then 
-        echo -e "$2 is ${BG} SUCCESSFUL ${CN}"
+        echo -e "$2 is ${CG} SUCCESSFUL ${CN}"
     else
-        echo -e "$2 has ${RI} FAILED ${CN}"
+        echo -e "$2 has ${CR} FAILED ${CN}"
+        exit 1;
     fi
 }
 
@@ -43,10 +43,10 @@ then
         true;
     elif [ "$RESPONSE" == "N" ] || [ "$RESPONSE" == "n" ];
     then
-        echo -e "${GB}EXITING SCRIPT${CN}"
+        echo -e "${CG}EXITING SCRIPT${CN}"
         exit 1;
     else
-        echo -e "${RI}INVALID RESPONSE ${CN}"
+        echo -e "${CR}INVALID RESPONSE ${CN}"
         return 1;
     fi
 else 
