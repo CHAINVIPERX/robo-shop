@@ -4,7 +4,7 @@ CR="\e[31m"
 CG="\e[32"
 CY="\e[33m"
 CN="\e[0m"
-GB="\e[1;${CG}m"
+BG="\e[1;${CG}m"
 RI="\e[3;${CR}m"
 
 VALIDATION (){
@@ -33,7 +33,6 @@ VALIDATION $? "INSTALLING NODEJS"
 echo "Creating User"
 id roboshop
 ES=$?
-RESPONSE
 if [ $ES = 0 ];
 then
     echo -e "User Already ${CY}Exists${CN}";
