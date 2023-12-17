@@ -10,7 +10,7 @@ mkdir /tmp/robo-shop.logs/
 ES=$?;
 if [ $ES != 0 ];
 then
-    echo " Directory Already Exists...$CY SKIP $CN"
+    echo -e "Directory Already Exists...$CY SKIP $CN"
 else
     true;
 fi
