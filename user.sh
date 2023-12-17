@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CR="\e[31m"
-CG="\e[32"
+CG="\e[32m"
 CY="\e[33m"
 CN="\e[0m"
 
