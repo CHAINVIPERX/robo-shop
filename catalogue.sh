@@ -5,8 +5,8 @@ CG="\e[32m"
 CY="\e[33m"
 CN="\e[0m"
 
-LOG=/tmp/robo-shop-logs/$(date +%F-%M-%H ).$0;
-#exec &>LOG;
+LOG=/tmp/robo-shop.logs/$(date +%F-%M-%H ).$0;
+exec &>"$LOG";
 
 VALIDATION(){
 if [ $1 -eq 0 ];
