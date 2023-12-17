@@ -24,7 +24,7 @@ else
     true;
 fi
 
-echo "Installing ${CY}Nodejs${CN}"
+echo -e "Installing ${CY}Nodejs${CN}"
 dnf module disable nodejs -y
 dnf module enable nodejs:18 -y
 dnf install nodejs -y
