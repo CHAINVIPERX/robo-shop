@@ -31,7 +31,7 @@ rm -rf /usr/share/nginx/html/
 cd /usr/share/nginx/html/
 wget https://roboshop-builds.s3.amazonaws.com/web.zip
 unzip -o web.zip
-rm -rf /usr/share/nginx/html/web.zip
+rm -f /usr/share/nginx/html/web.zip
 VALIDATION $? "Downloading Web Interface"
 
 echo -e "${CY}Configuring NGINX${CN}"
