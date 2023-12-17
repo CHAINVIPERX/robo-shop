@@ -10,9 +10,9 @@ CN="\e[0m"
 VALIDATION(){
     if [ $1 -eq 0 ]; 
     then echo -e "Installation of $2 is $CG SUCCESS $CN "
-         return 0;
+        
     else echo -e "Installation of $2 has $CR FAILED $CN"
-         return 1;
+         exit 1;
     fi; 
 }
 
@@ -27,7 +27,7 @@ fi
 
 echo -e "Installing $CG Mongodb $CN"
 
-dnf install mongodb -y
+dnf install mongodb-org -y
 
 VALIDATION $? Mongodb
 
