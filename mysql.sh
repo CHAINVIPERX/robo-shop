@@ -23,11 +23,11 @@ else
 fi
 
 echo -e "Configuring ${CY}MYSQL Repository${CN}"
-cp /home/centos/robo-shop/mysql.repo /etc/systemd/system/mysql.repo
-VALIDATION $? "Creating MYSQL Repository"
+dnf module disable mysql -y
+cp -u /home/centos/robo-shop/mysql.repo /etc/systemd/system/mysql.repo
+VALIDATION $? "Configuring MYSQL Repository"
 
 echo -e "Installing ${CY}MYSQL${CN}"
-dnf module disable mysql -y
 dnf install mysql-community-server -y
 VALIDATION $? "Installing MYSQL"
 
