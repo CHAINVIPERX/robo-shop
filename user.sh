@@ -24,9 +24,9 @@ else
 fi
 
 echo "Installing Nodejs"
-dnf module disable nodejs
-dnf module enable nodejs:18
-dnf install nodejs
+dnf module disable nodejs -y
+dnf module enable nodejs:18 -y
+dnf install nodejs -y
 VALIDATION $? "INSTALLING NODEJS"
 
 echo "Creating User"
@@ -58,17 +58,17 @@ mkdir /app
 VALIDATION $? "CREATING DIRECTORY"
 cd /app
 
-echo -e "Downloading ${CY}user.service${CN}"
+echo "Downloading user.service"
 wget https://roboshop-builds.s3.amazonaws.com/user.zip
 unzip /app/user.zip
 npm install
-VALIDATION $? "INSTALLING ${CY}user.service${CN}"
+VALIDATION $? "Installing User.service"
 
 cp /home/centos/robo-shop/user.service /etc/systemd/system/user.service
 echo "Starting user.service"
 systemctl daemon-reload
 systemctl enable user
 systemctl start user
-VALIDATION $? "Starting ${CY}user${CN}"
+VALIDATION $? "Starting User"
 netstat -lntp
 
