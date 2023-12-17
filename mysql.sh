@@ -24,7 +24,7 @@ fi
 
 echo -e "Configuring ${CY}MYSQL Repository${CN}"
 dnf module disable mysql -y
-cp -u /home/centos/robo-shop/mysql.repo /etc/systemd/system/mysql.repo
+cp -u /home/centos/robo-shop/mysql.repo /etc/yum.repos.d/mysql.repo
 VALIDATION $? "Configuring MYSQL Repository"
 
 echo -e "Installing ${CY}MYSQL${CN}"
