@@ -7,7 +7,7 @@ CN="\e[0m"
 GB="\e[1;${CG}m"
 RI="\e[3;${CR}m"
 
-VALIDATIOM (){
+VALIDATION (){
     if [ $1 -eq 0 ];
     then 
         echo -e "$2 is ${BG} SUCCESSFUL ${CN}"
