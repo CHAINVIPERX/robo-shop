@@ -1,9 +1,12 @@
 #!/bin/bash
+
 CR="\e[31m"
 CG="\e[32m"
 CY="\e[33m"
 CN="\e[0m"
-LOG="/tmp/robo-shop.logs/$0.$(date +%F-%H-%M)";
+
+mkdir /tmp/robo-shop.logs/
+LOG=/tmp/robo-shop.logs/$(date +%F-%H-%M).$0;
 exec &>"$LOG"
 
 VALIDATION(){
