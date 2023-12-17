@@ -22,7 +22,7 @@ then
 else
     true;
 fi
-echo -e "${CY}Preparing to run${CN}"
+echo -e "${CY}Preparing Prerequisites${CN}"
 dnf install maven -y
 VALIDATION $? "Preparation"
 
