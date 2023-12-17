@@ -52,23 +52,23 @@ if [ $ES = 0 ];
         useradd roboshop 
 fi
 VALIDATION $? "Creating User"
-echo "Making Directory"
+echo -e "${CY}Making Directory${CN}"
 mkdir /app
 cd /app
 VALIDATION $? "Making Directory"
 
-echo "Downloading Cart.Service"
+echo -e "${CY}Downloading Cart.Service${CN}"
 wget https://roboshop-builds.s3.amazonaws.com/cart.zip
 unzip -o cart.zip
-echo "Installing Cart.Service"
+echo -e "${CY}Installing Cart.Service${CN}"
 npm install
 VALIDATION $? "Installing Cart"
 
-echo "Configuring Cart.Service"
+echo -e "${CY}Configuring Cart.Service${CN}"
 cp /home/centos/robo-shop/cart.service /etc/systemd/system/cart.service
 VALIDATION $? "Configuring Cart.Service"
 
-echo "Starting Cart.Service"
+echo -e "${CY}Starting Cart.Service${CN}"
 systemctl daemon-reload
 systemctl enable cart
 systemctl start cart
