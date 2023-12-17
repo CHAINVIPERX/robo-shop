@@ -21,9 +21,9 @@ CN="\e[0m"
 VALIDATION(){
     if [ $1 -eq 0 ];
     then
-        echo -e "Installation of $2 is $CG Successful $CN"
+        echo -e "Installation of $2 is $CG SUCCESSFUL $CN"
     else
-        echo -e "Installation of $2 has $CR Failed $CN"
+        echo -e "Installation of $2 has $CR FAILED $CN"
     fi
 }
 if [ $(id -u) -ne 0 ];
@@ -47,6 +47,9 @@ dnf install redis -y
 VALIDATION $? "REDIS"
 
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf
+
+echo "Starting Redis"
 systemctl enable redis
 systemctl start redis
+VALIDATION $? "Starting Redis"
 netstat -lntp
