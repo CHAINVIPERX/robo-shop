@@ -3,7 +3,7 @@
 CR="\e[31m"
 CG="\e[32"
 CY="\e[33m"
-CN="\e[0"
+CN="\e[0m"
 GB="\e[1;${CG}m"
 RI="\e[3;${CR}m"
 
