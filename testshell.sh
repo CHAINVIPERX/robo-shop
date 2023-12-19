@@ -91,39 +91,48 @@
 #    echo "$i"
 #done
 
-<<comment
-echo " enter d to see date"
-echo " enter pd to see present working directory"
+#echo " enter d to see date"
+#cho " enter pd to see present working directory"
+#read -r RESPONSE 
+#caseresponse="${RESPONSE,,}"
+#case $caseresponse in
+#d) date;;
+#pd) pwd;;
+#*) echo "Invalid input";;
+#esac
 
-read -r RESPONSE 
+#read -rp "Enter 2 numbers" A B
+#read -rp "Enter a for addition , s for substraction" RESPONSE
+#addition()
+#{
+#    answer=$(($1+$2));
+#    echo " $1 + $2 is = ${answer}"
+#substraction()
+#{
+#   #let answer=$1-$2
+#   echo " $1-$2 is $(($1-$2))"
+#}
+#caseresponse="${RESPONSE,,}"
+#case $caseresponse in
+#a) addition "$A" "$B" ;;
+#s) substraction "$A" "$B" ;;
+#) echo "Invalid input" ;;
+#esac
 
-caseresponse="${RESPONSE,,}"
 
-case $caseresponse in
 
-d) date;;
-pd) pwd;;
-*) echo "Invalid input";;
-esac
-comment
-<<comment
-read -rp "Enter 2 numbers" A B
-read -rp "Enter a for addition , s for substraction" RESPONSE
-addition()
-{
-    answer=$(($1+$2));
-    echo " $1 + $2 is = ${answer}"
-}
-substraction()
-{
-   #let answer=$1-$2
-   echo " $1-$2 is $(($1-$2))"
-}
 
-caseresponse="${RESPONSE,,}"
-case $caseresponse in
-a) addition "$A" "$B" ;;
-s) substraction "$A" "$B" ;;
-*) echo "Invalid input" ;;
-esac
-comment
+read -rp "Enter log path to delete them :" LOCATION
+LOGSOURCE=$(dirname "${LOCATION}")
+if [ ! -d "$LOGSOURCE" ]; 
+then
+    echo " ${LOGSOURCE} Directory doesnt exists"
+    exit 1;
+fi
+cd "${LOGSOURCE}"
+LOGSTODELETE=$(find . -type f -mtime +!$ -name "*.log") 
+whil IFS=$'\n' read -r filename
+do
+    echo "Deleting ${filename}"
+    rm -f "${filename}"
+done <<< "${LOGSTODELETE}"
