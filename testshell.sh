@@ -130,9 +130,9 @@ then
     exit 1;
 fi
 cd "${LOGSOURCE}"
-LOGSTODELETE=$(find . -type f -mtime +!$ -name "*.log") 
-whil IFS=$'\n' read -r filename
+LOGSTODELETE=$(find . -type f -mtime +14 -name "*.log") 
+while IFS=$'\n' read -r filename
 do
-    echo "Deleting ${filename}"
-    rm -f "${filename}"
+    echo "Deleting ${filename}";
+    rm -f "${filename}";
 done <<< "${LOGSTODELETE}"
