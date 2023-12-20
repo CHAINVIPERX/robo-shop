@@ -140,8 +140,7 @@
 
 name=""
 wishes=""
-echo "${name} is a human"
-echo "${wishes} is a wish"
+
 usage(){
     echo "Usage :: $(basename $0) -n <name> -w <wishes>"
     echo "Options ::"
@@ -154,6 +153,8 @@ do
     case $opt in
         n) name="${OPTARG}";;
         w) wishes="${OPTARG}";;
-        h|*) usage;exit;;
+        h|*) usage;exit ;;
     esac
+    echo "${name} is a human"
+    echo "${wishes} is a wish"
 done
