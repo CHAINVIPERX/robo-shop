@@ -157,6 +157,7 @@ do
         :) usage;exit ;;   
     esac
 done
+echo "Debug: name=$name, wishes=$wishes"
 
 if [ -z "$name" ] || [ -z "$wishes" ];
 then
