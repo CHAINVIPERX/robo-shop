@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#p1=alekhya
-#p2=balaji
+#p1=Juliet
+#p2=Romeo
 
 #echo "$p1:I Love You"
 #echo "$p2:Okay.Love you too"
