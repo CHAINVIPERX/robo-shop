@@ -141,7 +141,7 @@ DISKNAME=$(df -hT | grep xfs | awk '{print $1}');
 ALERTUSAGE=1
 message=""
 
-while IFS=$'\n' read -r diskname
+while IFS='' read -r diskname
 do 
     echo "${diskname}";
     #DISKUSAGE=$(df -hT | grep "${diskname}" | awk '{print $6}' | cut -d '%' -f 1);
