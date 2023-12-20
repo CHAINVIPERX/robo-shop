@@ -139,11 +139,10 @@
 
 DISKS=$(df -hT | grep xfs );
 ALERTUSAGE=1
-message=""
 
 while IFS= read -r line
 do 
-    DISKNAME=$(${line}| awk '{print 1}');
+    DISKNAME=$(${line}| awk '{print $1}');
     DISKUSAGE=$(echo "${line}" | awk '{print $6}' | cut -d '%' -f 1);
        if [ "${DISKUSAGE}" -gt "${ALERTUSAGE}" ];
         then 
