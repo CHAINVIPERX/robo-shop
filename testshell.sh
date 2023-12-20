@@ -147,7 +147,9 @@ do
        if [ "${DISKUSAGE}" -gt "${ALERTUSAGE}" ]
         then 
             echo "${DISKNAME} disk usage has crossed the alert threshold of ${ALERTUSAGE}% Current Usage is at ${DISKUSAGE}%"
+            echo "This is a CAUTIONARY mail & Date $(date)" | mail -s "HIGH DISK USAGE ${DISKNAME} disk usage has crossed the alert threshold of ${ALERTUSAGE}% Current Usage is at ${DISKUSAGE}%" kbalajireddy112@gmail.com
         else 
             true;
         fi
+
 done <<<"${DISKS}"
