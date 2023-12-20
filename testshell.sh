@@ -147,22 +147,22 @@ usage(){
     echo "-w, specify the wishes"
     echo "-h, For help"
 }
-while getopts ":h:n:w" opt;
+while getopts ":h:n:w:" opt;
 do
     case $opt in
         n) name="$OPTARG";;
         w) wishes="$OPTARG";;
         h) usage;exit ;;
-        \?) echo "Invalid Option ::"$OPTARG"" >&2; usage;exit;;
+        \?) echo "Invalid Option ::$OPTARG" >&2; usage;exit;;
         :) usage;exit ;;   
     esac
 done
-echo "${name} is a human"
-echo "${wishes} is a wish"
+
 if [ -z "$name" ] || [ -z "$wishes" ];
 then
     echo "ERROR:: -n and - w are mandaory"
     usage
     exit 1
 fi
-
+echo "${name} is a human"
+echo "${wishes} is a wish"
