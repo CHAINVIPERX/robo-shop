@@ -137,18 +137,18 @@
 #    rm -f "${filename}";
 #done <<< "${LOGSTODELETE}"
 
-DISKNAME=$(df -hT | grep xfs | awk '{print $1}');
+DISKS=$(df -hT | grep xfs );
 ALERTUSAGE=1
 message=""
 
-while IFS= read -r diskname
+while IFS= read -r line
 do 
-    echo "${diskname}";
-    #DISKUSAGE=$(df -hT | grep "${diskname}" | awk '{print $6}' | cut -d '%' -f 1);
-    #   if [ "${DISKUSAGE}" -gt "${ALERTUSAGE}" ];
-    #    then 
-    #            echo "${diskname} usage has crossed the alert threshold of ${ALERTUSAGE}%"
-    #    else 
-    #        true;
-    #    fi
-done <<<"${DISKNAME}"
+    DISKNAME=$(${line}| awk '{print 1}');
+    DISKUSAGE=$(echo "${line}" | awk '{print $6}' | cut -d '%' -f 1);
+       if [ "${DISKUSAGE}" -gt "${ALERTUSAGE}" ];
+        then 
+                echo "${DISKNAME} usage has crossed the alert threshold of ${ALERTUSAGE}%"
+        else 
+            true;
+        fi
+done <<<"${DISKS}"
