@@ -138,7 +138,7 @@
 #done <<< "${LOGSTODELETE}"
 
 name=""
-wishes=""
+wishes="Hi!"
 
 usage(){
     echo "Usage :: $(basename $0) -n <name> -w <wishes>"
@@ -159,7 +159,7 @@ do
 done
 #echo "Debug: name=$name, wishes=$wishes"
 
-if [ -z "$name" ] || [ -z "$wishes" ];
+if [ -z "$name" ];
 then
     echo "ERROR:: -n and - w are mandaory"
     usage
