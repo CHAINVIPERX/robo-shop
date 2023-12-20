@@ -146,7 +146,7 @@ do
     DISKUSAGE=$(echo $line | awk '{print $6}' | cut -d '%' -f 1)
        if [ "${DISKUSAGE}" -gt "${ALERTUSAGE}" ]
         then 
-            echo "${DISKNAME} usage has crossed the alert threshold of ${ALERTUSAGE}% Current Usage is at ${DISKUSAGE}%"
+            echo "${DISKNAME} disk usage has crossed the alert threshold of ${ALERTUSAGE}% Current Usage is at ${DISKUSAGE}%"
         else 
             true;
         fi
