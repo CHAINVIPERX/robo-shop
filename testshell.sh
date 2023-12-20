@@ -157,7 +157,8 @@ do
         :) usage;exit ;;   
     esac
 done
-
+echo "${name} is a human"
+echo "${wishes} is a wish"
 if [ -z "$name" ] || [ -z "$wishes" ];
 then
     echo "ERROR:: -n and - w are mandaory"
@@ -165,5 +166,3 @@ then
     exit 1
 fi
 
-echo "${name} is a human"
-echo "${wishes} is a wish"
