@@ -138,8 +138,8 @@
 #done <<< "${LOGSTODELETE}"
 
 
-name
-wishes
+name=""
+wishes=""
 usage(){
     echo "Usage :: $(basename $0) -n <name> -w <wishes>"
     echo "Options ::"
