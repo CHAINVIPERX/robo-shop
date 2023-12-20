@@ -140,6 +140,8 @@
 
 name=""
 wishes=""
+echo "${name} is a human"
+echo "${wishes} is a wish"
 usage(){
     echo "Usage :: $(basename $0) -n <name> -w <wishes>"
     echo "Options ::"
