@@ -137,19 +137,21 @@
 #    rm -f "${filename}";
 #done <<< "${LOGSTODELETE}"
 
-DISKS=$(df -hT | grep xfs );
-ALERTUSAGE=1
 
-while IFS= read -r line
-do 
-    DISKNAME=$( echo $line | awk '{print $1}')
-    DISKUSAGE=$(echo $line | awk '{print $6}' | cut -d '%' -f 1)
-       if [ "${DISKUSAGE}" -gt "${ALERTUSAGE}" ]
-        then 
-        ALERT="${DISKNAME} disk usage has crossed the alert threshold of ${ALERTUSAGE}% Current Usage is at ${DISKUSAGE}%"
-            sh mail.sh  "ALERT!HIGH DISK USAGE" "DEVOPS TEAM" "$ALERT" "kbalajireddy112@gmail.com"
-        else 
-            true;
-        fi
-
-done <<<"${DISKS}"
+name
+wishes
+usage(){
+    echo "Usage :: $(basename $0) -n <name> -w <wishes>"
+    echo "Options ::"
+    echo "-n, specify the name"
+    echo "-w, specify the wishes"
+    echo "-h, For help"
+}
+while getopts ":h:n:w" opt;
+do
+    case $opt in
+        n) name="${OPTARG}";;
+        w) wishes="${OPTARG}";;
+        h|*) usage;exit;;
+    esac
+done
