@@ -122,17 +122,33 @@
 
 
 
-read -rp "Enter log path to delete them :" LOCATION
-LOGSOURCE=$(dirname "${LOCATION}")
-if [ ! -d "$LOGSOURCE" ]; 
-then
-    echo " ${LOGSOURCE} Directory doesnt exists"
-    exit 1;
-fi
-cd "${LOGSOURCE}"
-LOGSTODELETE=$(find . -type f -mtime +14 -name "*.log") 
-while IFS=$'\n' read -r filename
-do
-    echo "Deleting ${filename}";
-    rm -f "${filename}";
-done <<< "${LOGSTODELETE}"
+#read -rp "Enter log path to delete them :" LOCATION
+#LOGSOURCE=$(dirname "${LOCATION}")
+#if [ ! -d "$LOGSOURCE" ]; 
+#then
+#    echo " ${LOGSOURCE} Directory doesnt exist"
+#    exit 1;
+#fi
+#cd "${LOGSOURCE}"
+#LOGSTODELETE=$(find . -type f -mtime +14 -name "*.log") 
+#while IFS=$'\n' read -r filename
+#do
+#    echo "Deleting ${filename}";
+#    rm -f "${filename}";
+#done <<< "${LOGSTODELETE}"
+
+DISKNAME=$(df -hT | grep xfs | awk '{print $1}');
+ALERTUSAGE=1
+message=""
+
+while IFS=$'\n' read -r diskname
+do 
+    echo "${diskname}";
+    #DISKUSAGE=$(df -hT | grep "${diskname}" | awk '{print $6}' | cut -d '%' -f 1);
+    #   if [ "${DISKUSAGE}" -gt "${ALERTUSAGE}" ];
+    #    then 
+    #            echo "${diskname} usage has crossed the alert threshold of ${ALERTUSAGE}%"
+    #    else 
+    #        true;
+    #    fi
+done <<<"${DISKNAME}"
