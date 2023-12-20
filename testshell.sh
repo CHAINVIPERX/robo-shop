@@ -146,8 +146,8 @@ do
     DISKUSAGE=$(echo $line | awk '{print $6}' | cut -d '%' -f 1)
        if [ "${DISKUSAGE}" -gt "${ALERTUSAGE}" ]
         then 
-            echo "${DISKNAME} disk usage has crossed the alert threshold of ${ALERTUSAGE}% Current Usage is at ${DISKUSAGE}%"
-            echo "This is a CAUTIONARY mail.HIGH DISK USAGE. ${DISKNAME} disk usage has crossed the alert threshold of ${ALERTUSAGE}% Current Usage is at ${DISKUSAGE}%"| mail -s "message" kbalajireddy112@gmail.com
+        ALERT="${DISKNAME} disk usage has crossed the alert threshold of ${ALERTUSAGE}% Current Usage is at ${DISKUSAGE}%"
+            sh mail.sh  "ALERT!HIGH DISK USAGE" "DEVOPS TEAM" "$ALERT" "kbalajireddy112@gmail.com"
         else 
             true;
         fi
