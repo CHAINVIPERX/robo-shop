@@ -154,9 +154,17 @@ do
         n) name="${OPTARG}";;
         w) wishes="${OPTARG}";;
         h) usage;exit ;;
-        \?) echo "Invalid Option ::${OPTARG}"usage;exit;;
+        \?) echo "Invalid Option ::${OPTARG}" >&2; usage;exit;;
         :) usage;exit ;;   
     esac
-    echo "${name} is a human"
-    echo "${wishes} is a wish"
 done
+
+if [ -z "${name}" ] || [ -z "${wishes}" ];
+then
+    echo "ERROR:: -n and - w are mandaory"
+    usage;
+    exit 1;
+fi
+
+echo "${name} is a human"
+echo "${wishes} is a wish"
