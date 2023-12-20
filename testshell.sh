@@ -137,7 +137,6 @@
 #    rm -f "${filename}";
 #done <<< "${LOGSTODELETE}"
 
-
 name=""
 wishes=""
 
@@ -151,19 +150,19 @@ usage(){
 while getopts ":h:n:w" opt;
 do
     case $opt in
-        n) name="${OPTARG}";;
-        w) wishes="${OPTARG}";;
+        n) name="$OPTARG";;
+        w) wishes="$OPTARG";;
         h) usage;exit ;;
-        \?) echo "Invalid Option ::${OPTARG}" >&2; usage;exit;;
+        \?) echo "Invalid Option ::"$OPTARG"" >&2; usage;exit;;
         :) usage;exit ;;   
     esac
 done
 
-if [ -z "${name}" ] || [ -z "${wishes}" ];
+if [ -z "$name" ] || [ -z "$wishes" ];
 then
     echo "ERROR:: -n and - w are mandaory"
-    usage;
-    exit 1;
+    usage
+    exit 1
 fi
 
 echo "${name} is a human"
