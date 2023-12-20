@@ -142,8 +142,8 @@ ALERTUSAGE=1
 
 while IFS= read -r line
 do 
-    DISKNAME=$(${line}| awk '{print $1}');
-    DISKUSAGE=$(echo "${line}" | awk '{print $6}' | cut -d '%' -f 1);
+    DISKNAME=$( $line | awk '{print $1}');
+    DISKUSAGE=$(echo "$line" | awk '{print $6}' | cut -d '%' -f 1);
        if [ "${DISKUSAGE}" -gt "${ALERTUSAGE}" ];
         then 
                 echo "${DISKNAME} usage has crossed the alert threshold of ${ALERTUSAGE}%"
