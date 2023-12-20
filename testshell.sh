@@ -153,7 +153,9 @@ do
     case $opt in
         n) name="${OPTARG}";;
         w) wishes="${OPTARG}";;
-        h|*) usage;exit ;;
+        h) echo "Invalid Option.Use -h for help";;
+        :) usage;exit ;;
+        *) usage;exit ;;   
     esac
     echo "${name} is a human"
     echo "${wishes} is a wish"
