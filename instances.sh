@@ -7,7 +7,7 @@ EC_3=("MONGODB" "RABBITMQ" "SHIPPING" "MYSQL")
 
 for ((i=0;i <= ${#EC_2[*]};i++))
 do
-    echo "Creating ${EC-2[$i]} Instance"
+    echo "Creating ${EC_2[$i]} Instance"
     aws ec2 run-instances --image-id ${AMI_ID} --instance-type t2.micro --security-group-ids ${SEC_ID}
     echo "DONE"
 done
