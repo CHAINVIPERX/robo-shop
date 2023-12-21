@@ -20,12 +20,12 @@ do
                 {
                     "Action": "UPSERT",
                     "ResourceRecordSet": {
-                 "Name": "'${T_3[$i],,}'.'${DOMAIN_NAME}'",
+                   "Name": "${T_3[$i],,}.${DOMAIN_NAME}",
                         "Type": "A",
                         "TTL": 300,
                         "ResourceRecords": [
                             {
-                                "Value": "'$PrivateIpAddress'"
+                                "Value": "$PrivateIpAddress"
                             }
                         ]
                     }
