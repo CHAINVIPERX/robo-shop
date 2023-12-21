@@ -1,4 +1,7 @@
 - name : "PLAY BOOK"
+  hosts : web
   TASKS :
    -TASK-1 :  Ping the Server
+    ansible.bultin.ping
+
    
