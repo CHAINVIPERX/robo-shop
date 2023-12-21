@@ -1,7 +1,7 @@
 - name : PLAY BOOK
   hosts : web
   TASKS :
-   -TASK-1 : Ping the Server
+  - TASK-1 : Ping the Server
     ansible.builtin.ping:
 
    
