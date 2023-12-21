@@ -12,13 +12,13 @@ T_3_SMALL=$(aws ec2 run-instances --image-id ${AMI_ID} --instance-type t3.small 
 for ((i=0;i <= ${#EC_2[*]};i++))
 do
     echo "Creating ${EC-2[$i]} Instance"
-    ${T_2_MICRO}
+    $T_2_MICRO
     echo "DONE"
 done
 
 for ((i=0;i <= ${#EC_3[*]};i++))
 do
     echo "Creating ${EC_3[$i]} Instance"
-    ${T_3_SMALL}
+    $T_3_SMALL
     echo "DONE"
 done
