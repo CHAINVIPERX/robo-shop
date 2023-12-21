@@ -1,7 +1,13 @@
-- name : PLAY BOOK
-  hosts : web
-  TASKS :
-  - TASK-1 : Ping the Server
-    ansible.builtin.ping:
+- name: install and run nginx
+  hosts: web
+  tasks:
+  -task-1: install nginx
+   ansible.builtin.package:
+    name: nginx
+    state: present
+  -task-2: run nginx
+   ansible.builtin.service:
+    name: nginx
+    state: started
 
    
