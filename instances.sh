@@ -18,7 +18,7 @@ do
     --change-batch '{
         "Changes": [
             {
-                "Action": "UPSERT",
+                "Action": "CREATE",
                 "ResourceRecordSet": {
                     "Name": "'"${T_2[$i],,}.${DOMAIN_NAME}"'",
                     "Type": "A",
@@ -44,7 +44,7 @@ do
     --change-batch '{
         "Changes": [
             {
-                "Action": "UPSERT",
+                "Action": "CREATE",
                 "ResourceRecordSet": {
                     "Name": "'"${T_3[$i],,}.${DOMAIN_NAME}"'",
                     "Type": "A",
