@@ -2,13 +2,13 @@
   hosts: web
   become: yes
   tasks:
-  -task-1: install nginx
-   ansible.builtin.package:
-    name: nginx
-    state: present
-  -task-2: run nginx
-   ansible.builtin.service:
-    name: nginx
-    state: started
+    -task: install nginx
+    ansible.builtin.package:
+        name: nginx
+        state: present
+    -task: run nginx
+    ansible.builtin.service:
+        name: nginx
+        state: started
 
    
