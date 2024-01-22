@@ -3,7 +3,7 @@ Description = Cart Service
 [Service]
 User=roboshop
 Environment=REDIS_HOST=redis.ladoo.shop
-Environment=CATALOGUE_HOST=cat.ladoo.shop
+Environment=CATALOGUE_HOST=catalogue.ladoo.shop
 Environment=CATALOGUE_PORT=8080
 ExecStart=/bin/node /app/server.js
 SyslogIdentifier=cart
